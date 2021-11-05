@@ -1,0 +1,21 @@
+const {MongoClient}  = require("mongodb");
+
+const client = new MongoClient("mongodb://localhost:27017");
+
+async function main(){
+    try {
+        await client.connect();
+    
+        const employeeDb = client.db("employees");
+        const contactsCollection = employeeDb.collection("contacts");
+
+        contactsCollection.updateOne({name: "Grace Nakazibwe"}, { $set: { phone: "25677777777"}});
+    
+        console.log("Reaching here means all above is okay");
+    
+    } catch (error) {
+        console.log(error.stack);
+    }
+}
+
+main();
