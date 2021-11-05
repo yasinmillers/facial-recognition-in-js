@@ -1,5 +1,3 @@
-const { FaceMatcher } = require("face-api.min.js");
-const faceapi = require("face-api.js")
 const vidoe = document.getElementById("vid")
 
 Promise.all([
